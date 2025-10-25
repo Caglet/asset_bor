@@ -6,7 +6,6 @@ import '/lecturer/lecturer_home_page.dart';
 import '/register.dart';
 import '/staff/staff_home_page.dart';
 import '/student/student_home_page.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -40,9 +39,10 @@ class _LoginPageState extends State<LoginPage> {
     }
 
     try {
+      final url=await AppConfig.getBaseUrl(); 
       final response = await http.post(
         // Uri.parse('${_backendBaseUrl()}/login'),
-        Uri.parse('${AppConfig.baseUrl}/login'),
+        Uri.parse('${url}/login'),
         headers: {'Content-Type': 'application/json'},
         body: jsonEncode({'username': username, 'password': password}),
       );
