@@ -53,8 +53,9 @@ class AppConfig {
       return ip != null ? 'http://$ip:3000' : 'http://127.0.0.1:3000';
     } else if (Platform.isAndroid) {
       // Android emulator
-      final ip = await info.getWifiIP();
-      return 'http://$ip:3000';
+      // final ip = await info.getWifiIP();
+      // return 'http://$ip:3000';
+      return 'http://10.0.2.2:3000';  // this works for the host machine's server when running emulator
     } else if (Platform.isIOS) {
       // iOS simulator
       return 'http://localhost:3000';
