@@ -16,8 +16,9 @@ app.use(
 );
 
 const PORT = 3000;
-app.listen(PORT, () => {
-    console.log(`Server is running at http://localhost:${PORT}`);
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Server is running at http://0.0.0.0:${PORT}`);
+  console.log(`Accessible in LAN: http://<your-ipv4-address>:${PORT}`);
 });
 
 app.get("/password/:password", function (req, res) {
